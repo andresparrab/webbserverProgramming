@@ -1,11 +1,13 @@
 .hero {
   height: 20rem;
-  background: linear-gradient(to right, #14a76c, #ffe400);
+  /* background: linear-gradient(to right, #14a76c, #ffe400); */
+  background: linear-gradient(to right, #405bf1, hsl(133, 71%, 51%));
   /* color: #14a76c; */
 }
 .hero2 {
   height: 10rem;
-  background: linear-gradient(to right, #14a76c, #ffe400);
+  /* background: linear-gradient(to right, #14a76c, #ffe400); */
+  background: linear-gradient(to right, #405bf1, hsl(133, 71%, 51%));
   /* color: #14a76c; */
 }
 

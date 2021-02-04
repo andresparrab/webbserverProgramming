@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['author']))
+{
+   header("Location: http://myBlog/error.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +22,7 @@
 
 
         <div class="container">
-            <a class="navbar-brand fs-3 fw-bold" href="#">MyBlog</a>
+            <a class="navbar-brand fs-3 fw-bold" href="../index.php">MyBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -23,21 +30,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="#">Home</a>
+                <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="../index.php">Home</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-success  " href="#">Link</a>
-                    </li>
+
                     <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                        <a class="nav-link" href="login.php">Log in</a>
+
+
 
                 </ul>
                 <form class="d-flex">
@@ -65,23 +65,28 @@
     <!-- Rows  -->
     <main class="content bg-light container py-5">
         <div class="w-50">
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="user" class="form-control" id="exampleFormControlInput1" placeholder="Naruto">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3 my-4">Confirm identity</button>
-                  </div>  
-            </div>
-              
+            <form action="./php/insert_post.php" method="post">
+                <input name="author" type="hidden" value="<?php echo $_SESSION['author']?>">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Title</label>
+                    <input name="title" type="text" class="form-control" id="title" placeholder="title">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Seo Title</label>
+                    <input name="seo" type="user" class="form-control" id="Name" placeholder="Naruto">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Category</label>
+                    <input name="category" type="text" class="form-control" id="Subject" placeholder="Subject">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                    <textarea  name="content" class="form-control" id="Message" rows="15"></textarea>
+                    <div class="col-auto">
+                        <button name="submit" type="submit" class="btn btn-primary mb-3 my-4">Confirm identity</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </main>
 
@@ -112,11 +117,11 @@
                 doloribus qui?</p>
         </div>
         <div class="d-flex flex-wrap justify-content-center">
-            <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
-            <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
-            <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
-            <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
-            <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
+            <a class="badge bg-secondary fs-6 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
+            <a class="badge bg-secondary fs-6 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
+            <a class="badge bg-secondary fs-6 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
+            <a class="badge bg-secondary fs-6 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
+            <a class="badge bg-secondary fs-6 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
 
         </div>
         <div class="credits text-center mt-4"> 

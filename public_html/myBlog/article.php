@@ -1,3 +1,6 @@
+<?php
+$title = $_GET['title'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,7 @@
 
 
         <div class="container">
-            <a class="navbar-brand fs-3 fw-bold" href="#">MyBlog</a>
+            <a class="navbar-brand fs-3 fw-bold" href="index.php">MyBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -23,21 +26,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-success  " href="#">Link</a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
+
+                
+                <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="login.php">Log in</a>
                     </li>
                     <li class="nav-item  ">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="./admin/insert_author.php">Register</a>
                     </li>
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="./admin/insert_post.php">Post</a>
+                    </li>
+
 
                 </ul>
                 <form class="d-flex">
@@ -55,7 +58,7 @@
     <section class="hero2 d-flex align-items-center">
         <div class="container">
             <div class="d-flex justify-content-center">
-                <h1 class="fw-bold text-white">Article title</h1>
+                <h1 class="fw-bold text-white"><?php echo $title?>  </h1>
             </div>
 
         </div>
@@ -65,9 +68,15 @@
 
     <main class="content bg-light container py-5">
         <div class="row">
-    
+        <?php
+            // echo 'Start testing';
+            require_once("./php/getPost.php");
+            // echo 'Before getMain';
+            getMainPosts();
+            // echo 'Stop testing';
+            ?>
             <!-- Row items -->
-            <article class="row col-md-8 px-4" style="height:450px;" >
+            <!-- <article class="row col-md-8 px-4" style="max-height: 900px;" >
                 <div class="mx-0 shadow">
                     <img class="img-fluid" src="./images/02.jpg" alt="">
                     <div class="p-2">
@@ -101,14 +110,14 @@
                        </div>
                    </div>
                 </div>
-            </article>
+            </article> -->
         
             
             <!-- Side Items -->
             <aside class="col-md-4 px-4 mx-2">    
             <article class="w-100 mb-4">
                 <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/01.jpg" alt="">
+                    <img class="img-fluid" src="./images/1.jpg" alt="">
                     <div class="article-content px-2 py-1">
                         <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
                         <div class="d-flex justify-content-between">
@@ -123,7 +132,7 @@
 <!-- Side Items -->
             <article class="w-100 py-0 mb-4">
                 <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/01.jpg" alt="">
+                    <img class="img-fluid" src="./images/1.jpg" alt="">
                     <div class="article-content px-2 py-1">
                         <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
                         <div class="d-flex justify-content-between">
@@ -138,7 +147,7 @@
             <!-- Side Items -->
             <article class="w-100 py-0 mb-4">
                 <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/01.jpg" alt="">
+                    <img class="img-fluid" src="./images/1.jpg" alt="">
                     <div class="article-content px-2 py-1">
                         <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
                         <div class="d-flex justify-content-between">
@@ -153,7 +162,7 @@
             <!-- Side Items -->
             <article class="w-100 py-0 mb-4">
                 <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/01.jpg" alt="">
+                    <img class="img-fluid" src="./images/1.jpg" alt="">
                     <div class="article-content px-2 py-1">
                         <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
                         <div class="d-flex justify-content-between">
@@ -200,6 +209,9 @@
             <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
             <a class="badge bg-secondary fs-4 p-2 m-2 text-decoration-none" href="">Privacy polivy</a>
 
+        </div>
+        <div class="credits text-center mt-4"> 
+            <p>Made by Andres Parra &copy; 2021. All right reserved</p> 
         </div>
     </footer>
 </body>
