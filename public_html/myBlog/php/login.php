@@ -16,12 +16,15 @@ session_start();
           }
           $email = mysqli_real_escape_string($conn, $_POST['email']);
           $pass = mysqli_real_escape_string($conn, $_POST['password']);
+    	//$email = $_POST['email'];
+        //$pass = $_POST['password'];
 
-        $pass = hash(sha512 , $pass);
+        //$pass = hash(sha512 , $pass);
+	$pass = password_hash($pass, PASSWORD_DEFAULT);
         //$pass = "123";
-   
+   	echo 'entering query';
         $query = "SELECT * FROM author WHERE email= '$email' AND password = '$pass'";
-        
+        echo '\npasss the query';
         if (mysqli_query($conn, $query)) {
             echo "successfully inserted: title, seo_title, content, author:::: ";
         } else {
@@ -29,13 +32,13 @@ session_start();
         }
         echo "EMAIL: " . $email;
         //echo "PASSWORD: " . $pass;
-        //$query = "SELECT * FROM author";
+        $query = "SELECT * FROM author";
         $result = mysqli_query($conn, $query);
        // echo "<br> pass2". $query. $conn;
         //$row =mysqli_fetch_array($result);
         //echo "<br>ID is " . $row[0];
         //echo "Entering the if STATMENT<br>";
-        if(mysqli_num_rows($result)==1){
+        if(mysqli_num_rows($result)>1){
             echo "good3";
             $row =mysqli_fetch_array($result);
             //$row2 =mysqli_fetch_array($result);
@@ -51,7 +54,7 @@ session_start();
         // else{
         //     echo "<br>bad<br>";
         // }
-        echo "lol";
+        //echo "lol";
         echo $_SESSION['author'];
 
 ?>

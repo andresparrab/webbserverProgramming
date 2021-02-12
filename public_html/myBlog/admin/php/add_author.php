@@ -20,7 +20,7 @@
            echo "good";
            //echo "<br>conn: ". $conn;
           }
-        $author_password = hash(sha512 , $author_password);
+         $author_password = password_hash($author_password, PASSWORD_DEFAULT);
         $query = "INSERT INTO author (name, email, password) VALUES ('$name', '$email', '$author_password')";
 
         if (mysqli_query($conn, $query)) {
@@ -42,8 +42,8 @@
             //$_SESSION['author'] = mysqli_fetch_array($result)[0];
             header("Location: ../new_post.php");
         }
-        // else{
-        //     header("Location: http://localhost/myBlog/error.html");
+         else{
+             header("Location: http://localhost/myBlog/error.html");
             
-        // }
+         }
 ?>
