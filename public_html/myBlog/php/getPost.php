@@ -10,17 +10,15 @@
         //Create connection
          $conn = mysqli_connect($servername, $username, $password, $dbname);
          if ($conn) {
-             //echo "Connection succesfull<br>";
           }
           else{
             die("Connection failed: " . mysqli_connect_error());
           }
         
         $postID = $_GET['postID'];
-      
-       // $postID = 44; 
-        //echo "this is the post id".$postID;
+
         $query = "SELECT * FROM post WHERE id= $postID";
+        //$query = "SELECT * FROM post ORDER BY date DESC LIMIT 10";
        
         if (mysqli_query($conn, $query)) {
   
@@ -28,46 +26,24 @@
             echo "<br>"."category Error: " . $query . "<br>" . mysqli_error($conn);
           }
         
-        //$query = "SELECT * FROM post ORDER BY date DESC LIMIT 10";
+        
         $result = mysqli_query($conn, $query);
 
         $counter = 1;
 
     $row =mysqli_fetch_array($result);
-    //   echo "this is the row: ".$row[0];
-    //   echo "<br>this is the title<br>". $row['title'];
             $query = "SELECT name FROM category 
                 INNER JOIN has_category on category.id = has_category.category 
             WHERE has_category.post = ".$row['id'];
              
         $cat_result =  mysqli_query($conn, $query);
-        //echo "Cat result<br>";
+
         $categories ="";
         while($category = mysqli_fetch_array($cat_result)){ 
          $categories .= ' <span class="badge bg-success fs-5">'.
          $category['name'].'</span>';  
         }
-            // echo '
-            // <article class="col-md-4 p-3">
-            // <a class="text-decoration-none" href="article.html" >
-            //     <div class="m-1 shadow">
-                
-            //         <img class="img-fluid" src="images/0'.$counter++.'.jpg" alt="0'.$counter++.'" style="height:292px;">
-            //         </a>
-            //         <div class="article-content px-2 py-1">
-            //             <h2 class="fs-3 fw-bold mb-1">'. $row['title'].'</h2>
-            //             <div class="d-flex justify-content-between">
-            //                 <p>'. substr($row['date'],0,10).'</p>
-            //                 <p>
-            //                     '.$categories.'
-            //                 </p>
-            //             </div>
-            //         </div>
-            //     </div>
-               
-            // </article>
-            // ';
-        
+
         echo '
 
 
@@ -110,7 +86,6 @@
             </div>
         </article>
         ';
-  
-        // echo "end";
+
     }
 ?>

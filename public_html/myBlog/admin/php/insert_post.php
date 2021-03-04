@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['author']))
 {
-   header("Location: http://myBlog/error.html");
+   header("Location: ../../error.php");
 }
     // Set variables
     $servername = "localhost";
@@ -21,10 +21,7 @@ if(!isset($_SESSION['author']))
     $content = $_POST['content'];
     $category = $_POST['category']; // Example 1, 2, 3
     $author = $_POST['author'];
-    // echo "this is the author: <br>". $author. "<br>";
-    // echo "this is the title: <br>". $title. "<br>";
-    // echo "this is the seo: <br> ". $seo. "<br>";
-    // echo "this is the category: <br> ". $category. "<br>";
+
     // Conditions
         // check connection
         if (!$conn) {
@@ -42,9 +39,7 @@ if(!isset($_SESSION['author']))
         {
             echo "fill all fields please <br>" . $title . $seo . $content;
         }
-    }
-
-
+    }s
         $query = "INSERT INTO post(title, seo_title, content, author) VALUES ('$title', '$seo', '$content', '$author')";
         // Check for error when inserting to the table
         if (mysqli_query($conn, $query)) {
@@ -56,7 +51,6 @@ if(!isset($_SESSION['author']))
         $query = "SELECT id FROM post WHERE seo_title='$seo'";
         $result = mysqli_query($conn, $query);
         $row =mysqli_fetch_array($result);
-        //echo "This is the result <br>". $result;
         echo "<br>ID is " . $row[0];
         $post_id = $row[0];
         $category_array = explode(" ", $category); // 1, 2 
@@ -70,8 +64,6 @@ if(!isset($_SESSION['author']))
                 echo "<br>"."category Error: " . $query . "<br>" . mysqli_error($conn);
             }
         }
-        
-        //header("Location: http://localhost/error");
         // Closing connection
         mysqli_close($conn);
    

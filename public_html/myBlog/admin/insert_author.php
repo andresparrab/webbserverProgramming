@@ -10,11 +10,8 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../mybootstrat.css">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-
         <div class="container">
             <a class="navbar-brand fs-3 fw-bold" href="../index.php">MyBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -45,7 +42,6 @@
 
     </nav>
 
-
     <!-- HERO section -->
     <section class="hero2 d-flex align-items-center">
         <div class="container">
@@ -55,7 +51,6 @@
 
         </div>
     </section>
-
 
     <!-- Rows  -->
     <main class="content bg-light container py-5">
@@ -120,10 +115,8 @@
             <p>Made by Andres Parra &copy; 2021. All right reserved</p> 
         </div>
     </footer>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
-
 </html>

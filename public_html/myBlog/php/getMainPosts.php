@@ -17,15 +17,13 @@
           }
       
         $query = "SELECT * FROM post ORDER BY date DESC LIMIT 50";
-       
-        //$result = mysqli_query($conn, $query);
+
         if (mysqli_query($conn, $query)) {
   
           } else {
             echo "<br>"."category Error: " . $query . "<br>" . mysqli_error($conn);
           }
         
-        //$query = "SELECT * FROM post ORDER BY date DESC LIMIT 10";
         $result = mysqli_query($conn, $query);
 
         $counter = 1;
@@ -37,7 +35,6 @@
             WHERE has_category.post = ".$row['id'];
              
         $cat_result =  mysqli_query($conn, $query);
-        //echo "Cat result<br>";
         $categories ="";
         while($category = mysqli_fetch_array($cat_result)){ 
          $categories .= ' <span class="badge bg-dark fs-5">'.
@@ -46,10 +43,9 @@
             echo '
             <article class="col-md-4 p-3">
             <a class="text-decoration-none" href="article.php?postID='.$row['id'].'&title='.urlencode($row['title']).'">
-                <div class="m-1 shadow">
-                
-                    <img class="img-fluid" src="./images/'.$counter.'.jpg" alt="0'. $counter.'" '. $counter++.' style="height:292px;">
-                    </a>
+                <div class="m-1 shadow">                
+                    <img class="img-fluid" src="./images/'.$counter.'.jpg" alt="0'. $counter.'" style="height:292px;">
+            </a>
                     <div class="article-content px-2 py-1">
                         <h2 class="fs-3 fw-bold mb-1">'. $row['title'].'</h2>
  
@@ -64,7 +60,7 @@
                
             </article>
             ';
+            $counter++;
         }
-        // echo "end";
     }
 ?>

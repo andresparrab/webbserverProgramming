@@ -69,48 +69,12 @@ $title = $_GET['title'];
     <main class="content bg-light container py-5">
         <div class="row">
         <?php
-            // echo 'Start testing';
+            
             require_once("./php/getPost.php");
-            // echo 'Before getMain';
+            
             getMainPosts();
-            // echo 'Stop testing';
+            
             ?>
-            <!-- Row items -->
-            <!-- <article class="row col-md-8 px-4" style="max-height: 900px;" >
-                <div class="mx-0 shadow">
-                    <img class="img-fluid" src="./images/02.jpg" alt="">
-                    <div class="p-2">
-    
-                        <div class="badge mb-1">
-                            <span class="badge bg-success fs-5 m-1 p-1">Bootstrap</span>
-                            <span class="badge bg-success fs-5 m-1 p-1">Responsive</span>
-                            <span class="badge bg-success fs-5 m-1 p-1">CSS</span>
-                            </p>
-                        </div>
-    
-                        <h3 class="mb-3">Subheading</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ratione nemo rerum laborum modi
-                            expedita, aliquid totam ex impedit! Nostrum, quam! Aspernatur repudiandae maiores, porro quas et
-                            incidunt nihil eveniet?</p>
-                    </div>
-                    <div class="d-flex justify-content-center my-3">
-                        <button class="btn btn-primary btn-lg fs-4 mx-1">Learn more</button>
-                        <button class="btn btn-dark btn-lg fs-4 mx-1">Like more</button>
-                    </div>
-
-                   <div class="p-0 bg-dark text-white">
-                       <div class="row pt-3 m-0">
-                           <div class="col-md-3 text-end ">
-                               <img class="img-fluid rounded-circle" src="https://picsum.photos/200/300" alt="">
-                           </div>
-                           <div class="col-md-9">
-                               <h3 class="m-0">Andres Parra</h3>
-                               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid illo, vero eaque vitae hic sit, fuga necessitatibus nobis eius id quaerat tenetur illum quos placeat minima eum, nostrum natus corporis!</p>
-                           </div>
-                       </div>
-                   </div>
-                </div>
-            </article> -->
         
             
             <!-- Side Items -->

@@ -17,14 +17,14 @@
             die("Connection failed: " . mysqli_connect_error());
           }
           else{
-           echo "good";
-           //echo "<br>conn: ". $conn;
+           echo "connection good";
           }
-         $author_password = password_hash($author_password, PASSWORD_DEFAULT);
+        //$author_password = password_hash($author_password,PASSWORD_DEFAULT);
+        echo "this is the pass: ".$author_password;
         $query = "INSERT INTO author (name, email, password) VALUES ('$name', '$email', '$author_password')";
 
         if (mysqli_query($conn, $query)) {
-            //echo "New record created successfully  " .$name. "," . $email. "," .$author_password;
+
             echo "New record created successfully";
         } else {
             echo "<br>"."Mega Error: " . $query . "<br>" . mysqli_error($conn);
@@ -34,16 +34,16 @@
         $result = mysqli_query($conn, $query);
         $row =mysqli_fetch_array($result);
         echo "<br>ID is " . $row[0];
-       // echo "<br> pass2". $query. $conn;
 
-       
+
         if(mysqli_num_rows($result) > 1){
             echo "<br>pass2";
-            //$_SESSION['author'] = mysqli_fetch_array($result)[0];
-            header("Location: ../new_post.php");
+            $_SESSION['author'] = mysqli_fetch_array($result)[0];
+            echo "hello ".  $_SESSION['author'];
+            header("Location: ../../login.php");
         }
          else{
-             header("Location: http://localhost/myBlog/error.html");
+             header("Location: ../../myBlog/error.php");
             
          }
 ?>

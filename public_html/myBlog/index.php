@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,16 +41,42 @@
                     </li>
 
                     <li class="nav-item  ">
-                        <a class="nav-link" href="./admin/new_post.php">Post</a>
+                        <a class="nav-link" href="./error.php" >Post </a>
                     </li>
-
+                    <?php
+                        if(isset($_SESSION['authorName']))
+                        {
+                            echo ' <li class="nav-item  ">
+                            <a class="nav-link" href="./logout.php">Log out </a>
+                        </li>';
+                        }
+                     
+                    ?>                  
+                   
 
                 </ul>
+   
                 <form class="d-flex">
+                
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
+                   
                 </form>
+                <div class="signed_in px-1" >
+                    <?php
+                        if(!isset($_SESSION['authorName']))
+                        {
+                            echo "no user,";
+                        }
+                        else
+                        {
+                            echo $_SESSION['authorName'];
+                        }                       
+                    ?> 
+                         <br>Signed in
+                </div>
             </div>
+          
         </div>
 
 
@@ -65,107 +96,13 @@
         <section class="row" >
 
             <?php
-            // echo 'Start testing';
+            
             require_once("./php/getMainPosts.php");
-            // echo 'Before getMain';
+        
             getMainPosts();
-            // echo 'Stop testing';
+            
             ?>
-            <!-- Row items -->
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/01.jpg" alt="" style="height:292px;" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-success fs-5">mongostaff</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
 
-            <!-- Row items -->
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/02.jpg" alt="" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-warning fs-5">HTML5 &amp CSS;</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
-
-            <!-- Row items -->
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/10.jpg" alt="" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-dark fs-5">php</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
-            <!-- Row items -->
-
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/04.jpg" alt="" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-success fs-5">mongostaff</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
-            <!-- Row items -->
-
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/05.jpg" alt="" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-success fs-5">mongostaff</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
-            <!-- Row items -->
-
-            <!-- <article class="col-md-4 p-3">
-                <div class="m-1 shadow">
-                    <img class="img-fluid" src="./images/06.jpg" alt="" style="height:292px;">
-                    <div class="article-content px-2 py-1">
-                        <h2 class="fs-3 fw-bold mb-1">My bootstrap theme</h2>
-                        <div class="d-flex justify-content-between">
-                            <p>20. Mars 2020</p>
-                            <p>
-                                <span class="badge bg-success fs-5">mongostaff</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </article> -->
 
         </section>
     <div class="d-flex justify-content-center my-3">

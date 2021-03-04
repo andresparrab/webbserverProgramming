@@ -1,8 +1,9 @@
 <?php
 session_start();
 if(!isset($_SESSION['author']))
-{
-   header("Location: http://myBlog/error.html");
+{   
+ 
+     header("Location: ../error.php");
 }
 ?>
 <!DOCTYPE html>
@@ -19,8 +20,6 @@ if(!isset($_SESSION['author']))
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-
         <div class="container">
             <a class="navbar-brand fs-3 fw-bold" href="../index.php">MyBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,24 +32,36 @@ if(!isset($_SESSION['author']))
                 <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="../index.php">Home</a>
                     </li>
-
-                    <li class="nav-item  ">
-                        <a class="nav-link" href="login.php">Log in</a>
-
-
-
+                    <?php
+                        if(!isset($_SESSION['authorName']))
+                        {
+                            echo ' 
+                            <li class="nav-item  ">
+                                <a class="nav-link" href="../login.php">Log in</a>
+                            </li>';
+                        }                  
+                    ?> 
                 </ul>
                 <form class="d-flex">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+                <div class="signed_in px-1" >
+                    <?php
+                        if(!isset($_SESSION['authorName']))
+                        {
+                            echo "no user,";
+                        }
+                        else
+                        {
+                            echo $_SESSION['authorName'];
+                        }                       
+                    ?> 
+                         <br>Signed in
+                        </div>
             </div>
         </div>
-
-
     </nav>
-
-
     <!-- HERO section -->
     <section class="hero2 d-flex align-items-center">
         <div class="container">
@@ -60,8 +71,6 @@ if(!isset($_SESSION['author']))
 
         </div>
     </section>
-
-
     <!-- Rows  -->
     <main class="content bg-light container py-5">
         <div class="w-50">

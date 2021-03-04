@@ -70,7 +70,7 @@
                     <input name="email" type="text" class="form-control" id="title" placeholder="example@something.com">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <label for="email" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="Name" placeholder="Naruto">
                 </div>
 
