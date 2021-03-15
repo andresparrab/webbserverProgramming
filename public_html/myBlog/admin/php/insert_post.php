@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['author']))
+if(!isset( $_SESSION['author']))
 {
    header("Location: ../../error.php");
 }
@@ -39,7 +39,7 @@ if(!isset($_SESSION['author']))
         {
             echo "fill all fields please <br>" . $title . $seo . $content;
         }
-    }s
+    }
         $query = "INSERT INTO post(title, seo_title, content, author) VALUES ('$title', '$seo', '$content', '$author')";
         // Check for error when inserting to the table
         if (mysqli_query($conn, $query)) {
