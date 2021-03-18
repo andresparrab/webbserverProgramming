@@ -1,0 +1,212 @@
+/************Dashboard *******************/
+
+/************Dashboard nav *******************/
+.navbar-brand {
+    color: rgba(0,0,0,.9);
+    margin-left: 100px;
+}
+.bg-light {
+    background-color: #f8f9fa!important;
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+}
+
+/************Dashboard nav *******************/
+
+/************Dashboard sidebar *******************/
+.sidebar{
+    /* padding-top: 5rem; */
+    text-align: center;
+    position: fixed;
+    width: 100px;
+    background: #fff;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+}
+
+.sidebar > img{
+    max-width: 80px;
+    }
+
+.sidebar_icon{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-top: 4rem;
+    font-size: 30px;
+}
+
+.sidebar_icon>li{
+    margin: 1rem;
+    border-left: 2px solid rgb(255, 255, 255);
+}
+
+.sidebar_icon>li>i{
+    color: rgb(18, 151, 228);
+    /* border-left: 2px solid blue; */
+}
+
+.sidebar_icon>li:hover{
+   
+    border-left: 2px solid rgb(106, 184, 136);
+}
+.sidebar_icon>li>i:hover{
+    color: #55ecb2;
+    
+}
+.sidebar_icon>li>a:hover{
+    color: #55ecb2;
+    
+}
+
+a:link{
+    color: rgb(18, 151, 228);
+}
+a:visited{
+    color: rgb(18, 151, 228);
+}
+
+.bottom_sidebar_icon{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.bottom_sidebar_icon>li{
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    list-style: none;
+}
+
+.bottom_sidebar_icon i.fa{
+    color: rgb(18, 151, 228);
+    font-size: 34px;
+}
+
+.bottom_sidebar_icon img{
+    max-width: 80px;
+}
+/************Dashboard sidebar *******************/
+
+/************Dashboard main *******************/
+
+.graph_area{
+    padding: 2rem;
+    margin-left: 70px;
+    /* background-color: aqua; */
+}
+.user_name>h2{
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.btn-secondary {
+    
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    text-transform: uppercase;
+    height: 50px;
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+
+    /* padding:  2rem; */
+}
+.edit_delete{
+    background-color: #55ecb2;
+    /* color: brown; */
+}
+
+.value_cards_sec {
+    /* background-color: blueviolet; */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    /* box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%); */
+
+}
+
+
+
+.col-lg-3>.value_card{
+    margin-bottom: 1rem;
+    border-radius: 18px;
+    color: #fff;
+    background-color: #ddd;
+    height: 115px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%);
+
+}
+.value_card>p{
+    font-size: 14px;
+
+}
+.value_card>h3{
+    font-weight: 700;
+}
+
+.card_1{
+    height: 107;
+    background: transparent linear-gradient(109deg, #55ecb2 0%, #2dd393 100%)0% 0% no-repeat;
+   
+    opacity: 1;
+}
+
+.card_2{
+    height: 107;
+    background: transparent linear-gradient(109deg, #78a6fc 0%, #2d90d3 100%)0% 0% no-repeat;
+    
+    opacity: 1;
+}
+
+.card_3{
+    height: 107;
+    background: transparent linear-gradient(109deg, #ae83ff 0%, #8235ff 100%)0% 0% no-repeat;
+    
+    opacity: 1;
+}
+
+.card_4{
+    height: 107;
+    background: transparent linear-gradient(109deg, #ea85f3 0%, #ff1cec 100%)0% 0% no-repeat;
+   
+    opacity: 1;
+}
+
+.table {
+    margin-top: 10px;
+    width: 100%;
+    box-shadow: 0px 16px 20px #e2c9a3;
+}
+
+.graph_sec_2{
+    box-shadow: 0px 16px 20px #e2c9a3;
+    padding: 1.3rem;
+    margin-top: 2rem;
+}
+
+.graph_sec_2>p{
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+.graph_sec_2>img{
+    width: 100%;
+}
+.graph_sec_2 img.pie{
+    width: 68% !important;
+}
+/************Dashboard main *******************/
+
+/************Dashboard *******************/
+
+
+
+@media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 100%;
+    }

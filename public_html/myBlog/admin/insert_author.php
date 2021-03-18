@@ -55,7 +55,7 @@
     <!-- Rows  -->
     <main class="content bg-light container py-5">
         <div class="w-50">
-            <form action="http://localhost/myBlog/admin/php/add_author.php" method="post">
+            <form action="../admin/php/add_author.php" method="post">
                 <!-- <input name="author" type="hidden" value="1">   -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Name</label>

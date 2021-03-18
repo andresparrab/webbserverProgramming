@@ -1,8 +1,10 @@
 <?php
 session_start();
         $servername = "localhost";
-        $username = "doctor2";
-        $password = "doctor2";
+        $username = "NormalUser";
+        $password = "NormalUser";
+        // $username = "doctor2";
+        // $password = "doctor2";
         $dbname = "myBlog";
 
 
@@ -28,13 +30,28 @@ session_start();
         if(mysqli_num_rows($result)==1){
             echo "pass";
             $row =mysqli_fetch_array($result);
+            $rowAssoc= mysqli_fetch_assoc($result);
            
             echo "<br>ID is // " . $row[1] . "<br>";
             $_SESSION['author'] = $row[0];
             $_SESSION['authorName'] = $row[1];
+            $_SESSION['name'] = $row['name'];
+            if($_SESSION['name']=='admin')
+            {
+              echo "this is the authir name: ". $_SESSION['name']."<br>";
+              $_SESSION['success']  = "You are now logged in";
+				      header('location: ../admin.php');		
+            }
+            else
+            {
+              echo "this is the authir name: ". $_SESSION['name']."<br>";
+              $_SESSION['success']  = "You are now logged in";
+				       header("Location: ../admin/new_post.php");
+               echo "this session author:------>  " . $row[0]. "  <--------got it!";
+            }
+           
          
-            header("Location: ../admin/new_post.php");
-            echo "this session author:------>  " . $row[0]. "  <--------got it!";
+           
         }
         else{
             echo "bad";
