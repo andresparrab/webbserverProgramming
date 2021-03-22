@@ -1,44 +1,3 @@
-<?php
-//    Set variables
-// $servername = "localhost";
-// $username = "doctor2";
-// $password = "doctor2";
-// $dbname = "myBlog";
-include("../../php/connect.php");
-// PDO way
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  if($conn->connect_error) die($conn->connect_error);
-
-  function getUsers()
-  {
-    global $conn;
-$query = "SELECT * FROM author";
-
-
-        if (mysqli_query($conn, $query)) {
-            $result = $conn->query($query);
-          $rows = $result->num_rows; 
-          for ($j = 0;$j < $rows ; ++$j) {
-              $result->data_seek($j); 
-              $row = $result->fetch_array(MYSQLI_ASSOC); 
-            echo '
-              <tr>
-              <th>'.$row['id'].'</th>
-              <th>'.$row['name'].'</th>
-              <th>'.$row['email'].'</th>
-              <th>'.$row['password'].'</th>
-              <th class="btn-change"><button class="btn btn-secondary btn-block edit_delete">Edit</button>
-              <th><button class="btn btn-secondary btn-block edit_delete">Delete</button>
-
-          </tr>
-          ';
-              //echo "this is ti: ". $row['name'];
-          }
-          } else {
-            echo "<br>"."category Error: " . $query . "<br>" . mysqli_error($conn);
-          }
-        }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,7 +56,11 @@ $query = "SELECT * FROM author";
     <img src="logo.png" alt="logo">
 <ul class="ul sidebar_icon">
 <li><i class="fa fa-th-large"></i></li>
-<li><i class="far fa-user"></i></li>
+<li>
+    <a href="editUsers.php">
+        <i class="far fa-user"></i>
+    </a>
+</li>
 <li><i class="fas fa-suitcase"></i></li>
 <li><i class="fas fa-cog"></i></li>
 </ul>
@@ -137,25 +100,44 @@ $query = "SELECT * FROM author";
                         <h3>32</h3>
                     </div>
                 </div>
-        <table class="table table-bordered" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php getUsers();
-            ?>
-            </tbody>
 
+                <div class="col-lg-3">
+                    <div class="value_card card_3">
+                        <p>Total Earning</p>
+                        <h3>225</h3>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="value_card card_4">
+                        <p>Sales today</p>
+                        <h3>145</h3>
+                    </div>
+                </div>
             </div>
-
-        </table>
+        </div>
+        <div class="graph-sec">
+            <div class="row">
+            <div class="col-lg-3">
+                <div class="graph_sec_2">
+                    <p>Sales progress</p>
+                    <img src="graph.png" alt="">
+                 </div>
+            </div>
+             <div class="col-lg-9">
+                <div class="graph_sec_2">
+                    <p>Year wise sales</p>
+                    <img class="pie" src="chart-diagram.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="graph_sec_2">
+                    <p>Year wise sales</p>
+                    <img class="pie" src="chart-diagram.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     </div>   
 </div>
 <!-- /************Dashboard Main *******************/ -->

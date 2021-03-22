@@ -1,0 +1,6 @@
+.hero3 {
+  height: 10rem;
+  /* background: linear-gradient(to right, #14a76c, #ffe400); */
+  background: linear-gradient(to right, #f140d3, hsl(133, 71%, 51%));
+  /* color: #14a76c; */
+}

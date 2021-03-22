@@ -33,52 +33,34 @@ session_start();
                 <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item  ">
+                    <li class="nav-item  ">
                         <a class="nav-link" href="login.php">Log in</a>
-                    </li> -->
-
-                   
+                    </li>
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="./admin/insert_author.php">Register</a>
+                    </li>
 
                     <li class="nav-item  ">
                         <a class="nav-link" href="./error.php" >Post </a>
                     </li>
                     <?php
-                        //if(isset($_SESSION['id']))
-                        //{
-                            echo ' <li class="nav-item" name="edit-btn">
-                            <a class="nav-link" name="edit_id" href="/myBlog/userDashboard/uedit.php">My Account </a>
+                        if(isset($_SESSION['authorName']))
+                        {
+                            echo ' <li class="nav-item  ">
+                            <a class="nav-link" href="./user.php">My Account </a>
                         </li>';
-                        //
+                        }
                      
                     ?>
-                    <?php
+                                       <?php
                         if(isset($_SESSION['authorName']))
                         {
                             echo ' <li class="nav-item  ">
                             <a class="nav-link" href="./logout.php">Log out </a>
                         </li>';
                         }
-                        else{
-                            echo '     <li class="nav-item  ">
-                            <a class="nav-link" href="login.php">Log in</a>
-                        </li>';
-                        }  
-                    ?>
-                    
-                    <?php
-                        if(!isset($_SESSION['authorName']))
-                        {
-                            echo ' <li class="nav-item  ">
-                            <a class="nav-link" href="./admin/insert_author.php">Register</a>
-                        </li>';
-                        }  
-                        
-                        // else{
-                        //     echo ' <li class="nav-item  ">
-                        //     <a class="nav-link" href="./admin/insert_author.php">Register</a>
-                        // </li>';
-                        // }  
-                    ?>  
+                     
+                    ?>                    
                    
 
                 </ul>
@@ -91,13 +73,13 @@ session_start();
                 </form>
                 <div class="signed_in px-1" >
                     <?php
-                        if(!isset($_SESSION['name']))
+                        if(!isset($_SESSION['authorName']))
                         {
                             echo "no user,";
                         }
                         else
                         {
-                            echo $_SESSION['name'];
+                            echo $_SESSION['authorName'];
                         }                       
                     ?> 
                          <br>Signed in

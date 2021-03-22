@@ -3,6 +3,8 @@ session_start();
         $servername = "localhost";
         $username = "NormalUser";
         $password = "NormalUser";
+        // $username = "doctor2";
+        // $password = "doctor2";
         $dbname = "myBlog";
 
 
@@ -19,14 +21,14 @@ session_start();
 
         echo "this is the pass: ". $pass;
 
-   	echo '<br>entering query';
+   	echo 'n<br>entering query';
 
         $query = "SELECT * FROM `author` WHERE `email` = '$email' AND `password`= '$pass'";
         $result = mysqli_query($conn, $query);
        
         echo "<br>IDd is // " . $row[1] . "<br>";
         if(mysqli_num_rows($result)==1){
-            echo "<br>pass";
+            echo "pass";
             $row =mysqli_fetch_array($result);
             $rowAssoc= mysqli_fetch_assoc($result);
            
@@ -34,20 +36,18 @@ session_start();
             $_SESSION['author'] = $row[0];
             $_SESSION['authorName'] = $row[1];
             $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['id'];
             if($_SESSION['name']=='admin')
             {
-              echo "this is the admin name: ". $_SESSION['name']."<br>";
+              echo "this is the authir name: ". $_SESSION['name']."<br>";
               $_SESSION['success']  = "You are now logged in";
-				      header('location: ../adminDashboard/adminphp.php');		
+				      header('location: ../admin.php');		
             }
             else
             {
-              echo "this is the normal user name: ". $_SESSION['name']."<br>";
+              echo "this is the authir name: ". $_SESSION['name']."<br>";
               $_SESSION['success']  = "You are now logged in";
 				       header("Location: ../admin/new_post.php");
                echo "this session author:------>  " . $row[0]. "  <--------got it!";
-               echo "<br>this session ID:------>  " . $_SESSION['id']. "  <--------got it!";
             }
            
          
@@ -59,7 +59,6 @@ session_start();
             echo "<br>ID2 is // " . $row[1] . "<br>";
             $_SESSION['author'] = $row[0];
             echo "this session author:------>  " . $row[0]. "  <--------got it!";
-            header("Location: ../admin/login.php");
         }
 
         echo $_SESSION['author'];

@@ -3,6 +3,8 @@ session_start();
         $servername = "localhost";
         $username = "NormalUser";
         $password = "NormalUser";
+        // $username = "doctor2";
+        // $password = "doctor2";
         $dbname = "myBlog";
 
 
@@ -34,7 +36,6 @@ session_start();
             $_SESSION['author'] = $row[0];
             $_SESSION['authorName'] = $row[1];
             $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['id'];
             if($_SESSION['name']=='admin')
             {
               echo "this is the admin name: ". $_SESSION['name']."<br>";
@@ -47,7 +48,6 @@ session_start();
               $_SESSION['success']  = "You are now logged in";
 				       header("Location: ../admin/new_post.php");
                echo "this session author:------>  " . $row[0]. "  <--------got it!";
-               echo "<br>this session ID:------>  " . $_SESSION['id']. "  <--------got it!";
             }
            
          
@@ -59,7 +59,6 @@ session_start();
             echo "<br>ID2 is // " . $row[1] . "<br>";
             $_SESSION['author'] = $row[0];
             echo "this session author:------>  " . $row[0]. "  <--------got it!";
-            header("Location: ../admin/login.php");
         }
 
         echo $_SESSION['author'];
