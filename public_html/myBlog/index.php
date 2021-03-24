@@ -82,7 +82,7 @@ require_once("./php/getMainPosts.php");
 
                 </ul>
    
-                <form class="d-flex" method="post" >
+                <form class="d-flex" method="post"  autocomplete="off" >
                 
                     <input class="form-control" name="search" id="search"  type="search" placeholder="Search..." aria-label="Search">
                     <button class="btn btn-outline-success" name="search_btn" type="submit">Search</button>

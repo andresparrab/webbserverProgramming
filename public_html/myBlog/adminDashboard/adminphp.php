@@ -66,12 +66,12 @@ include('../php/code.php');
                         <h3><?php numberOfPostsPerMonth(); ?></h3>
                     </div>
                 </div>
-
+<!-- 
                 <div class="col-lg-3">
                     <div class="value_card card_4">
-                        <p>Post per month</p>
-                        <h3><?php numberOfPosts(); ?></h3>
-                    </div>
+                        <p>Users per month</p>
+                        <h3><?php numberOfUsersPerMonth(); ?></h3>
+                    </div> -->
                 </div>
             </div>
         </div>

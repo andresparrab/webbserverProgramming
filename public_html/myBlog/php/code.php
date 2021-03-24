@@ -139,9 +139,7 @@
                 }
         }
 
-        //updateUser2();
-
-
+ 
         // Delete User Function
         function Delete_user(){
             global $conn;
@@ -218,7 +216,7 @@
 
         function numberOfPostsPerMonth(){
             global $conn;
-            $query = "SELECT * FROM post";
+            $query = "SELECT * FROM post WHERE date BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE()";
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
               }
@@ -239,6 +237,26 @@
         function numberOfUsers(){
             global $conn;
             $query = "SELECT * FROM author";
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+              }
+              else{
+                //echo '<br> number of rows';
+                if (mysqli_query($conn, $query)) {
+                    $result = $conn->query($query);
+                    $rows = $result->num_rows; 
+                    echo $rows;
+    
+                }
+                else {
+                    echo "<br>"."category Error: " . $query . "<br>" . mysqli_error($conn);
+                    }
+              }            
+        }
+
+        function numberOfUsersPerMonth(){
+            global $conn;
+            $query = "SELECT * FROM author WHERE date BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND CURRENT_DATE()";
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
               }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+
+        $(document).ready(function() { 
+           
+        $('#sur').focusout(function(){
+            
+        $.getJSON("kunder.json", function(result){
+           
+        console.log(result);
+        $.each(result, function(key, value){
+        console.log("Nyckel : " + key + " har värdet " + value['firstName']); 
+        $('#sur').val(value.firstName);
+        console.log("VALUE : " +  $('#sur').val()); 
+
+        if ($("#sur").val() == value['firstName'])
+        {
+            console.log("ALSTA : " + key + " har värdet " + value['lastName']); 
+            $("#lastname").val(value.lastName);
+        }
+    
+    });
+
+        });
+        });
+        });
+</script>
+
+
+</head>
+<body>
+    <form >
+        <label>SURNAME</label>
+        <input id="sur" type="text" value="">
+        <input id="lastname" type="text" value="">
+        <div class="surname"></div>
+    </form>
+</body>
+</html>

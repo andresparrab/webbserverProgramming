@@ -1,0 +1,142 @@
+<head>
+
+    //
+    <script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script> 
+    <script>
+        // -------------------------- JAVASCRIPT  AN AJAX---------------------------------
+        // ------------------------Get loaded when callen on the button onClick=loadJSON()---------
+        function loadJSON() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "personer.json";
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var obj = JSON.parse(xmlhttp.responseText);  // we save the json file as variable obj
+                    console.log(typeof obj);  // the return type is an object
+                }
+                for (i = 0; i < obj.teachers.length; i++)  //Get all the teachers 
+                {
+                    obj.teachers[i].elever.forEach(element => {  // get all the elever
+                        document.getElementById("div").innerHTML += element.namn + "<BR>";
+                    });
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+    </script>
+
+
+<script>
+    $(document).ready(function () {
+       
+        $("#button1").click(function (e) {
+            e.preventDefault();
+            alert("button");
+            console.log("clicked");
+            $.getJSON('personer.json', function (data) {   // AJAX JQUERY
+                loop(data);
+            });
+        });
+        function loop(obj) {
+            $.each(obj, function (key, val) {
+                if (val && typeof val === "object") {  // loop inside the jason to find if a value is of type object then loop inside as well
+                    loop(val);
+                }
+                else {
+                    $("#div1").append("<p>Nyckel : " + key + ", data : " + val + "</p>");
+                }
+            });
+        }
+    });
+    </script>
+
+<script>
+                    //---------------------- LOAD personer with error hadling ---------------------
+    $(document).ready(function () 
+    {
+        $("#button4").click(function () {
+            $("#div4").load("personer.json", function (responseTxt, statusTxt, xhr) 
+            {
+                if (statusTxt == "success") alert("External content loaded successfully!");
+                if (statusTxt == "error") alert("Error: " + xhr.status + ": " + xhr.statusText);
+            });
+        });
+    });
+
+</script>
+
+
+<script>
+
+  $(document).ready(function () {
+        $("#button3").click(function () {
+            //alert("button");
+            $.getJSON('personer.json', function (data) {
+                loop(data);
+            });
+        });
+        function loop(obj) {
+            $.each(obj, function (key, val) {
+                if (val && typeof val === "object") {
+                    loop(val);
+                    if(key=="elever"){
+                        val.forEach(element => {
+                            $("#div1").append("<br>this name: "+element.namn);
+                        });
+   
+                }
+                if(key=="teachers"){
+                    val.forEach(element => {
+                            $("#div1").append("<br>Teachers name name: "+element.Namn);
+                        });
+                   
+                        }
+                    
+                } //------------------------ below will print out every key and value from all the jason file
+                // else if(key=="age"){
+                //     $("#div1").append("<p>Nyckel : " + key + ", data : " + val + "</p>");
+                // }
+            });
+        }
+    });
+ 
+</script>
+
+
+
+
+    <title></title>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <h2>Updatera sida med text fran JSON</h2>
+    <div id="div"></div>
+    <button type="button" onclick="loadJSON()">Update Details </button>
+    <div id="div1"></div>
+    <div id="div4"></div>
+    <button id="button1">button 1 </button>
+    <button id="button3">button 3 </button>
+    <button id="button4">button 4 </button>
+
+
+
+
+
+
+</body>
+</head>
