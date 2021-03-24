@@ -56,13 +56,7 @@ if(isset($_POST['delete_btn']))
                     <h2>Welcome <strong><?php echo ucfirst( $_SESSION['name']) ?></strong> </h2>
                 </div>
             </div>
-                <div class="col-lg-2 offset-lg-5">
-                    <div class="add_link">
-                    <a href="../admin/insert_author.php">
-                        <button class="btn btn-secondary btn-block">Add User</button>
-                    </a>
-                    </div>
-                </div>
+
         </div>
         <div class="value_cards_sec">
             <div class="row">
