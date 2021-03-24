@@ -1,12 +1,20 @@
 <?php
 session_start();
 
-
+//include('./php/connect.php');
+require_once("./php/getMainPosts.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous">
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The BobaBlog</title>
@@ -30,14 +38,10 @@ session_start();
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link active " aria-current="page" href="index.php">Home</a>
                     </li>
-                    <!-- <li class="nav-item  ">
-                        <a class="nav-link" href="login.php">Log in</a>
-                    </li> -->
 
-                   
 
                     <li class="nav-item  ">
                         <a class="nav-link" href="./error.php" >Post </a>
@@ -72,25 +76,28 @@ session_start();
                             <a class="nav-link" href="./admin/insert_author.php">Register</a>
                         </li>';
                         }  
-                        
-                        // else{
-                        //     echo ' <li class="nav-item  ">
-                        //     <a class="nav-link" href="./admin/insert_author.php">Register</a>
-                        // </li>';
-                        // }  
+
                     ?>  
                    
 
                 </ul>
    
-                <form class="d-flex">
+                <form class="d-flex" method="post" >
                 
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control" name="search" id="search"  type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-success" name="search_btn" type="submit">Search</button>
+                    <div class="col-md-2" style="position: absolute;    margin-top: 36px;">
+                       
+                        <div class="list-group" id="show-list"></div>
+                        <!-- Here will the autocomplete show -->
+
+                    </div>
                    
                 </form>
+
                 <div class="signed_in px-1" >
                     <?php
+                 
                         if(!isset($_SESSION['name']))
                         {
                             echo "no user,";
@@ -102,12 +109,14 @@ session_start();
                     ?> 
                          <br>Signed in
                 </div>
+
             </div>
-          
+
         </div>
 
-
     </nav>
+
+    </div>
     <section class="hero d-flex  align-items-center">
         <div class="container">
             <div class="d-flex justify-content-center">
@@ -124,8 +133,6 @@ session_start();
 
             <?php
             
-            require_once("./php/getMainPosts.php");
-        
             getMainPosts();
             
             ?>
@@ -157,5 +164,6 @@ session_start();
 
 <?php include "footer.inc" ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
 </html>
