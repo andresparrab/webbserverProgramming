@@ -162,7 +162,7 @@ require_once("./php/getMainPosts.php");
         </div>
     </section>
 
-<?php include "footer.inc" ?>
+<?php include "footer.inc"; ?>
 </body>
 
 

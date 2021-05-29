@@ -9,3 +9,8 @@ public_html/myBlog/admin/12 Monkeys (2015)
 public_html/myBlog/admin/Big Sky (2020)
 BobaBlog.pdf
 BobaBlog (1).pdf
+/public_html/myBlog/wordpress/wp-admin
+/public_html/myBlog/wordpress/wp-includes
+/public_html/myBlog/wordpress/wp-content/plugins
+/public_html/myBlog/wordpress/wp-content/upgrade
+/public_html/myBlog/wordpress/wp-content/themes/twenty*
